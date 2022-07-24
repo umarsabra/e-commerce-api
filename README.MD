@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-git https://github.com/umarsabra/e-commerce-api.git
+git clone https://github.com/umarsabra/e-commerce-api.git
 cd e-commerce-api
 npm i
 ```
