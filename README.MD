@@ -10,32 +10,32 @@ npm i
 
 ## Getting started
 
--Change the default postgres user password to postgres.
+- Change the default postgres user password to postgres.
 
 ```bash
 sudo -u postgres psql
 ALTER USER postgres PASSWORD 'postgres';
 ```
 
--Create a database with name prod_db running on postgres default port 5432
+- Create a database with name prod_db running on postgres default port 5432
 
 ```bash
 CREATE DATABASE prod_db;
 ```
 
--Running Migrations
+- Running Migrations
 
 ```bash
 npm run migrate
 ```
 
--Running Test
+- Running Test
 
 ```bash
 npm run test
 ```
 
--Staring
+- Staring
 
 ```bash
 npm start
