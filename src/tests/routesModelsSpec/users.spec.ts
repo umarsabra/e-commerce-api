@@ -2,19 +2,9 @@ import supertest from "supertest";
 
 import app from "../../index";
 
-//Setting supertest object on the app instence
 const request = supertest(app);
 
-//Root route test
 describe("User Routes/Models", () => {
-  it("Get user omarsabra with id = 1", async () => {
-    const res = await request.get("/users/1");
-    expect(JSON.parse(res.text)).toEqual({
-      first_name: "Omar",
-      last_name: "Sabra",
-      username: "omarsabra",
-    });
-  });
   let token: string;
 
   it("Create user Test User with Omar's token", async () => {
@@ -40,28 +30,34 @@ describe("User Routes/Models", () => {
       first_name: "Test",
       last_name: "User",
       username: "testuser",
+      id: 2,
+    });
+  });
+  it("Get user omarsabra with id = 1", async () => {
+    const res = await request.get("/users/1").set("authorization", token);
+    expect(JSON.parse(res.text)).toEqual({
+      first_name: "Omar",
+      last_name: "Sabra",
+      username: "omarsabra",
     });
   });
 
   it("Get all users", async () => {
-    const res = await request.get("/users");
+    const res = await request.get("/users").set("authorization", token);
 
     expect(JSON.parse(res.text)).toEqual([
       {
         first_name: "Omar",
         last_name: "Sabra",
         username: "omarsabra",
+        id: 1,
       },
       {
         first_name: "Test",
         last_name: "User",
         username: "testuser",
+        id: 2,
       },
     ]);
-  });
-  it("Delete test user ID = 2", async () => {
-    const res = await request.delete("/users/2").set("authorization", token);
-
-    expect(res.status).toBe(200);
   });
 });

@@ -3,10 +3,31 @@
 ## Installation
 
 ```bash
-    git https://github.com/umarsabra/e-commerce-api.git
-    cd e-commerce-api
-    npm i
-    npm start
+git https://github.com/umarsabra/e-commerce-api.git
+cd e-commerce-api
+npm i
+npm start
+```
+
+## Getting started
+
+-Change the default postgres user password to postgres.
+
+```bash
+sudo -u postgres psql
+ALTER USER postgres PASSWORD 'postgres';
+```
+
+-Create a database with name prod_db running on postgres default port 5432
+
+```bash
+CREATE DATABASE prod_db;
+```
+
+-Running Test
+
+```bash
+npm run test
 ```
 
 ## API Endpoints

@@ -15,15 +15,7 @@ describe("Authorization Routes/Models", () => {
     const res = await request.post("/signup").send(user);
     expect(res.statusCode).toBe(201);
   });
-
-  it("Get user omarsabra with id = 1", async () => {
-    const res = await request.get("/users/1");
-    expect(JSON.parse(res.text)).toEqual({
-      first_name: "Omar",
-      last_name: "Sabra",
-      username: "omarsabra",
-    });
-  });
+  let token: string;
 
   it("Check username omarsabra access token", async () => {
     const user = {
@@ -31,6 +23,7 @@ describe("Authorization Routes/Models", () => {
       password: "password123",
     };
     const res = await request.post("/login").send(user);
-    expect(JSON.parse(res.text).access_token);
+    token = JSON.parse(res.text).access_token;
+    expect(token);
   });
 });
