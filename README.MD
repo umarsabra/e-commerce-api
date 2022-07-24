@@ -68,7 +68,7 @@ npm start
 
 - `GET /items/:id` Get item by ID
 
-- `POST /items` Add item
+- `POST /items` Add item [token required]
 
 ```ts
 {
@@ -85,7 +85,7 @@ npm start
 
 - `GET /users/:id` Get user by ID [token required]
 
-- `POST /users` Add user [token required]
+- `POST /users` Add user
 
 ```ts
 {
