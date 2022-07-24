@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS orders_items (
+    id SERIAL PRIMARY KEY,
+    quantity INTEGER,
+    item_id INTEGER REFERENCES items(id) ON DELETE CASCADE,
+    order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE
+);
