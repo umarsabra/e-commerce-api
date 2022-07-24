@@ -68,7 +68,7 @@ npm start
 
 - `GET /items/:id` Get item by ID
 
-- `POST /items` Add item [token required]
+- `POST /items` Add item
 
 ```ts
 {
