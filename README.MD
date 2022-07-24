@@ -2,26 +2,35 @@
 
 ## API Endpoints
 
+#### Login
+
+- `POST /login` returnes access token
+
+#### Sign Up
+
+- `POST /signup` Create user [token not required]
+
 #### Items
 
-- Index
-- Show
-- Create [token required]
-- Delete [token required]
-- [OPTIONAL] Top 5 most popular products
-- [OPTIONAL] Products by category (args: product category)
+- `GET /items` Get all items
+- `GET /items/:id` Get item by ID
+- `POST /items` Add item [token required]
+- `DELETE /items/:id` Delete item by ID [token required]
 
 #### Users
 
-- Index [token required]
-- Show [token required]
-- Create N[token required]
-- Delete [token required]
+- `GET /users` Get all users [token required]
+- `GET /users/:id` Get user by ID [token required]
+- `POST /users` Add user [token required]
+- `DELETE /users/:id` Delete user by ID [token required]
 
 #### Orders
 
-- Current Order by user (args: user id)[token required]
-- [OPTIONAL] Completed Orders by user (args: user id)[token required]
+- `GET /orders` Get all orders [token required]
+- `GET /orders/:id` Get order's items by order ID [token required]
+- `POST /orders` Create pending order [token required]
+- `POST /orders/:id/items` Add item to an order [token required]
+- `DELETE /orders/:id` Delete order by ID [token required]
 
 ## Data Shapes
 
