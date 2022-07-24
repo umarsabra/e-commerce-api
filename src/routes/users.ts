@@ -22,7 +22,7 @@ router.get("/:id", verify_token, async (req, res) => {
 });
 
 //CREATE USER
-router.post("/", verify_token, async (req, res) => {
+router.post("/", async (req, res) => {
   const first_name = req.body.first_name;
   const last_name = req.body.last_name;
   const username = req.body.username;
