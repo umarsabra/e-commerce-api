@@ -6,7 +6,7 @@ import app from "../../index";
 const request = supertest(app);
 
 //Root route test
-describe("Items Route/Models Tests", () => {
+describe("Orders Route/Models Tests", () => {
   let token: string;
   it("Creating a pending order", async () => {
     const user = {

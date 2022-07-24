@@ -2,11 +2,9 @@ import supertest from "supertest";
 
 import app from "../../index";
 
-//Setting supertest object on the app instence
 const request = supertest(app);
 
-//Root route test
-describe("Signup Routes/Models", () => {
+describe("Authorization Routes/Models", () => {
   it("Signup user Omar Sabra", async () => {
     const user = {
       first_name: "Omar",
