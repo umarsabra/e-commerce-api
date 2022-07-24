@@ -16,7 +16,7 @@ export class UserStore {
   async index(): Promise<User[]> {
     try {
       const conn = await Client.connect();
-      const sql = "SELECT first_name, last_name, username FROM users";
+      const sql = "SELECT id, first_name, last_name, username FROM users";
       const result = await conn.query(sql);
       conn.release();
       return result.rows;
@@ -45,7 +45,7 @@ export class UserStore {
   async create(user: User): Promise<User> {
     try {
       const sql =
-        "INSERT INTO users (first_name, last_name, username, password) VALUES($1, $2, $3, $4) RETURNING first_name, last_name, username";
+        "INSERT INTO users (first_name, last_name, username, password) VALUES($1, $2, $3, $4) RETURNING id, first_name, last_name, username";
 
       const conn = await Client.connect();
 
@@ -73,7 +73,7 @@ export class UserStore {
   async signup(user: User): Promise<User> {
     try {
       const sql =
-        "INSERT INTO users (first_name, last_name, username, password) VALUES($1, $2, $3, $4) RETURNING first_name, last_name, username";
+        "INSERT INTO users (first_name, last_name, username, password) VALUES($1, $2, $3, $4) RETURNING id, first_name, last_name, username";
 
       const conn = await Client.connect();
 

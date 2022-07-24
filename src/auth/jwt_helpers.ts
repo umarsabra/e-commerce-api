@@ -16,6 +16,7 @@ function verify_token(req: Request, res: Response, next: NextFunction) {
     const decoded = verify(token, TOKEN_SECRET_KEY) as JwtPayload;
 
     if (decoded.user.user_id) {
+      //Make user id accessable to next functions
       res.locals.user = decoded.user;
 
       next();
@@ -25,7 +26,7 @@ function verify_token(req: Request, res: Response, next: NextFunction) {
     }
   } catch {
     res.status(401);
-    res.json({ err: "Invalid Token", token: authorization_header });
+    res.json({ err: "Invalid Token" });
   }
 }
 

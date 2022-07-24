@@ -7,14 +7,14 @@ const router = express.Router();
 const user = new UserStore();
 
 //GET ALL USERS
-router.get("/", async (req, res) => {
+router.get("/", verify_token, async (req, res) => {
   const users = await user.index();
   res.status(200);
   res.json(users);
 });
 
 //GET ONE USER
-router.get("/:id", async (req, res) => {
+router.get("/:id", verify_token, async (req, res) => {
   const id = req.params.id;
   const result = await user.show(id);
   res.status(200);

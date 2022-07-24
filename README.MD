@@ -11,17 +11,6 @@
 
 ## API Endpoints
 
-#### Login
-
-- `POST /login` returnes access token
-
-```ts
-{
-  username: string;
-  password: string;
-}
-```
-
 #### Sign Up
 
 - `POST /signup` Create user [token not required]
@@ -30,6 +19,17 @@
 {
   first_name: string;
   last_name: string;
+  username: string;
+  password: string;
+}
+```
+
+#### Login
+
+- `POST /login` returnes access token
+
+```ts
+{
   username: string;
   password: string;
 }
@@ -87,8 +87,6 @@
   quantity: number;
 }
 ```
-
-- `DELETE /orders/:id` Delete order by ID [token required]
 
 ## Data Shapes
 
