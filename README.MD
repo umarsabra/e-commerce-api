@@ -10,16 +10,11 @@ npm i
 
 ## Getting started
 
-- Change the default postgres user password to postgres.
+- Change the default postgres user password to postgres and create prod_db database
 
 ```bash
 sudo -u postgres psql
 ALTER USER postgres PASSWORD 'postgres';
-```
-
-- Create a database with name prod_db running on postgres default port 5432
-
-```bash
 CREATE DATABASE prod_db;
 ```
 
