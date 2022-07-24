@@ -8,6 +8,7 @@
     "prettier": "prettier --config .prettierrc '**.ts' --write",
     "format": "npm run lint && npm run prettier",
     "build": "npx tsc --build",
+    "migrate": "db-migrate up",
     "migrate-test": "db-migrate db:create test_db && db-migrate up -e test",
     "test": "db-migrate db:drop test_db && npm run build && npm run migrate-test && ENV=test jasmine && db-migrate db:drop test_db",
     "start": "npm run build && node ."

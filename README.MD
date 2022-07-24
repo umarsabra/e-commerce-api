@@ -6,7 +6,6 @@
 git https://github.com/umarsabra/e-commerce-api.git
 cd e-commerce-api
 npm i
-npm start
 ```
 
 ## Getting started
@@ -24,10 +23,22 @@ ALTER USER postgres PASSWORD 'postgres';
 CREATE DATABASE prod_db;
 ```
 
+-Running Migrations
+
+```bash
+npm run migrate
+```
+
 -Running Test
 
 ```bash
 npm run test
+```
+
+-Staring
+
+```bash
+npm start
 ```
 
 ## API Endpoints
