@@ -24,7 +24,7 @@ router.post("/", verify_token, async (req, res) => {
   try {
     const title = req.body.title;
     const price = Number(req.body.price);
-    const new_item = await item.create(title, price);
+    const new_item = await item.create(title, String(price));
     res.status(201);
     res.json(new_item);
   } catch {

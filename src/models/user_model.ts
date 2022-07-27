@@ -6,7 +6,7 @@ export type User = {
   first_name: string;
   last_name: string;
   username: string;
-  password: string;
+  password?: string;
 };
 
 const PEPPER = process.env.BCRYPT_PEPPER;
@@ -50,7 +50,7 @@ export class UserStore {
       const conn = await Client.connect();
 
       const hashed_passowrd = bcrypt.hashSync(
-        user.password + PEPPER,
+        (user.password as unknown as string) + PEPPER,
         parseInt(SALT_ROUNDS)
       );
 
@@ -78,7 +78,7 @@ export class UserStore {
       const conn = await Client.connect();
 
       const hashed_passowrd = bcrypt.hashSync(
-        user.password + PEPPER,
+        (user.password as unknown as string) + PEPPER,
         parseInt(SALT_ROUNDS)
       );
 

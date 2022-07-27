@@ -2,11 +2,9 @@ import supertest from "supertest";
 
 import app from "../../index";
 
-//Setting supertest object on the app instence
 const request = supertest(app);
 
-//Root route test
-describe("Items Route/Models Tests", () => {
+describe("Items Route Tests", () => {
   let token: string;
   it("Adding one item", async () => {
     const item = {
@@ -30,17 +28,17 @@ describe("Items Route/Models Tests", () => {
     expect(JSON.parse(add_item_res.text)).toEqual({
       title: "Milk 250ml",
       price: "5",
-      id: 1,
+      id: 2,
     });
   });
 
-  it("Get one item with ID = 1", async () => {
-    const get_item_res = await request.get("/items/1");
+  it("Get one item with ID = 2", async () => {
+    const get_item_res = await request.get("/items/2");
 
     expect(JSON.parse(get_item_res.text)).toEqual({
       title: "Milk 250ml",
       price: "5",
-      id: 1,
+      id: 2,
     });
   });
 
@@ -52,6 +50,11 @@ describe("Items Route/Models Tests", () => {
         title: "Milk 250ml",
         price: "5",
         id: 1,
+      },
+      {
+        title: "Milk 250ml",
+        price: "5",
+        id: 2,
       },
     ]);
   });

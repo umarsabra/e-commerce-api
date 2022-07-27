@@ -1,9 +1,16 @@
 import Client from "../database";
 
 export type Order = {
-  id: number;
-  user_id: string;
+  id?: number;
+  user_id?: string | null;
   status: string;
+};
+
+export type OrderItem = {
+  id?: number;
+  quantity: number;
+  item_id: number;
+  order_id: number;
 };
 
 export class OrderStore {
@@ -35,7 +42,7 @@ export class OrderStore {
     }
   }
 
-  async create(user_id: string): Promise<Order> {
+  async create(user_id: string | null): Promise<Order> {
     try {
       const sql =
         "INSERT INTO orders (status, user_id) VALUES($1, $2) RETURNING *";
@@ -58,7 +65,7 @@ export class OrderStore {
     quantity: number,
     item_id: string,
     order_id: string
-  ): Promise<Order> {
+  ): Promise<OrderItem> {
     try {
       const sql =
         "INSERT INTO orders_items (quantity, item_id, order_id) VALUES ($1, $2, $3) RETURNING *";

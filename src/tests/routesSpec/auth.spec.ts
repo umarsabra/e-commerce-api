@@ -4,7 +4,7 @@ import app from "../../index";
 
 const request = supertest(app);
 
-describe("Authorization Routes/Models", () => {
+describe("Authorization Test", () => {
   it("Signup user Omar Sabra", async () => {
     const user = {
       first_name: "Omar",

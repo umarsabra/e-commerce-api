@@ -4,7 +4,7 @@ import app from "../../index";
 
 const request = supertest(app);
 
-describe("User Routes/Models", () => {
+describe("User Routes Tests", () => {
   let token: string;
 
   it("Create user Test User with Omar's token", async () => {
@@ -30,11 +30,11 @@ describe("User Routes/Models", () => {
       first_name: "Test",
       last_name: "User",
       username: "testuser",
-      id: 2,
+      id: 3,
     });
   });
-  it("Get user omarsabra with id = 1", async () => {
-    const res = await request.get("/users/1").set("authorization", token);
+  it("Get user omarsabra with id = 2", async () => {
+    const res = await request.get("/users/2").set("authorization", token);
     expect(JSON.parse(res.text)).toEqual({
       first_name: "Omar",
       last_name: "Sabra",
@@ -46,18 +46,9 @@ describe("User Routes/Models", () => {
     const res = await request.get("/users").set("authorization", token);
 
     expect(JSON.parse(res.text)).toEqual([
-      {
-        first_name: "Omar",
-        last_name: "Sabra",
-        username: "omarsabra",
-        id: 1,
-      },
-      {
-        first_name: "Test",
-        last_name: "User",
-        username: "testuser",
-        id: 2,
-      },
+      { id: 1, first_name: "User", last_name: "Model", username: "usermodel" },
+      { id: 2, first_name: "Omar", last_name: "Sabra", username: "omarsabra" },
+      { id: 3, first_name: "Test", last_name: "User", username: "testuser" },
     ]);
   });
 });

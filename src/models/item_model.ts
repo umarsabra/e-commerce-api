@@ -35,7 +35,7 @@ export class ItemStore {
     }
   }
 
-  async create(title: string, price: number): Promise<Item> {
+  async create(title: string, price: string): Promise<Item> {
     try {
       const sql = "INSERT INTO items (title, price) VALUES($1, $2) RETURNING *";
 
