@@ -39,3 +39,5 @@ npm start
 ## Notice
 
 `.env` file is set up from the `database.ts` file in [src/database.ts](https://github.com/umarsabra/e-commerce-api/blob/main/src/database.ts)
+
+or you can run `source .env`
