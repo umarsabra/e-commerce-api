@@ -12,6 +12,10 @@ npm i
 
 - Change the default postgres user password to postgres and create prod_db database
 
+##### Notice
+
+- Database runs on the default port and localhost `http://localhost:5432`
+
 ```bash
 sudo -u postgres psql
 ALTER USER postgres PASSWORD 'postgres';
